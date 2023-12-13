@@ -1,7 +1,5 @@
 # PROYECTO EJ2 BOBTAILS :dog:
 
-https://danieldw23.github.io/Proyecto_en_grupo--Ej2-Bobtails/
-
 ## Descripción
 
 **Partiendo de la página realizada por otro equipo en el ejercicio 1,** se deben añadir las nuevas funcionalidades que necesita el cliente,  en esta ocasión, el cliente nos pide que la página web cuente con un carrito de compras y nos ofrece algunos detalles que deben considerarse al momento de llevar adelante el diseño.
