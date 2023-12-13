@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Tienda de Mascotas</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <!--Juego de caracteres-->
+    <meta name="application-name" content="Servicio web de Tienda de Mascotas">
+    <meta name="author" content="Olga,Anderson,Andres,Victoria,Gladys">
+    <meta name="copyright" content="DiseñoWeb Beagles S.L.">
+    <!--Nombre del propietario de los derechos de autor-->
+    <meta name="description"
+        content="Web online de Tienda de mascotas Pet Palace,  lider en España dedicado a la venta de productos para mascotas.">
+    <meta name="keywords" content="Servicio, complementos alimentos, juguetes, snacks, cepillos, y accesorios">
+    <!--Palabras clave-->
+    <meta name="generator" content="Visual Studio Code">
+    <meta name="robots" content="all">
+    <link rel="shortcut icon" href="./img/logo.png">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div id="button-menu" class="button-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="imgContainer">
+                <img src="./img/logo.png" alt="Logo web Pet Palace">
+                <strong>Pet Palace</strong>
+            </div>
+            <ul id="nav" class="main-nav nav-links">
+                <li><a class="link-item" href="#">Perros <i class="fa-solid fa-paw" style="color: #000000;"></i></a>
+                    <ul class="submenu">
+                        <li><a href="#">Comida</a></li>
+                        <li><a href="#">Accessorios</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Marcas</a></li>
+                    </ul>
+                </li>
+                <li><a class="link-item" href="#">Gatos <i class="fa-solid fa-paw" style="color: #000000;"></i></a>
+                    <ul class="submenu">
+                        <li><a href="#">Comida</a></li>
+                        <li><a href="#">Accessorios</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Marcas</a></li>
+                    </ul>
+                </li>
+                <li><a class="link-item" href="#">Otros animales <i class="fa-solid fa-paw"
+                            style="color: #000000;"></i></a>
+                    <ul class="submenu">
+                        <li><a href="#" class="submenuDespl">Hámsteres <i class="fa-solid fa-caret-right"
+                                    style="color: #000000;"></i></a>
+                            <ul class="submenuSecondLevel" id="submenuHamsters">
+                                <li><a href="#">Comida</a></li>
+                                <li><a href="#">Accessorios</a></li>
+                                <li><a href="#">Servicios</a></li>
+                                <li><a href="#">Marcas</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="submenuDespl">Loros <i class="fa-solid fa-caret-right"
+                                    style="color: #000000;"></i></a>
+                            <ul class="submenuSecondLevel" id="submenuParrots">
+                                <li><a href="#">Comida</a></li>
+                                <li><a href="#">Accessorios</a></li>
+                                <li><a href="#">Servicios</a></li>
+                                <li><a href="#">Marcas</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="submenuDespl">Peces <i class="fa-solid fa-caret-right"
+                                    style="color: #000000;"></i></a>
+                            <ul class="submenuSecondLevel" id="submenuFish">
+                                <li><a href="#">Comida</a></li>
+                                <li><a href="#">Accessorios</a></li>
+                                <li><a href="#">Servicios</a></li>
+                                <li><a href="#">Marcas</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="hidden link-item"><a href="#">Marcas <i class="fa-solid fa-paw"
+                            style="color: #000000;"></i></a></li>
+                <li class="hidden link-item"><a href="#">Servicios <i class="fa-solid fa-paw"
+                            style="color: #000000;"></i></a>
+                </li>
+                <li class="hidden link-item"><a href="#">Nosotros <i class="fa-solid fa-paw"
+                            style="color: #000000;"></i></a></li>
+            </ul>
+
+            <input type="text" name="searchbar" id="searchbar" placeholder="Buscar...">
+
+            <!-- Botón carrito -->
+            <div class="navbar-item">
+                <div class="buttons">
+                    <button class="is-success" id="miBoton">
+                        <p><strong>Carrito <span id="conteoCarrito">
+
+                                </span>&nbsp;<i class="fa fa-shopping-cart"></i></strong></p>
+                    </button>
+
+                </div>
+            </div>
+            <!-- Botón carrito -->
+
+            <!-- html para el modal del carrito -->
+
+            <div id="miVentanaModal" class="modal">
+                <div class="container-carrito modal-contenido">
+                    <span class="cerrar">&times;</span>
+                    <h2 class="section-title">Carrito de Compras</h2>
+                    <div class="responsiveTable">
+                        <table class="cart-table">
+                            <thead>
+                                <tr class="primera-tr">
+                                    <th class="table-head-item col-uno"><span class="hide-mobile">Item</span></th>
+                                    <th class="table-head-item col-dos"><span class="hide-mobile">Precio</span></th>
+                                    <th class="table-head-item col-tres hide-mobile">Cantidad</th>
+                                    <th class="table-head-item col-cuatro hide-mobile">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productos-carrito">
+                            </tbody>
+
+                            <tfoot>
+                                <tr class="cart-total-container">
+                                    <td colspan="4" class="totalpagar">
+                                        <span>Total a pagar: €</span>
+                                        <span id="total-carrito"></span>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <button type="button" class="boton-vaciar-carrito button-carrito remove-product-button">Vaciar
+                        carrito</button>
+
+                    <button type="button" class="purchase-button button-carrito">Finalizar Compra</button>
+                </div>
+            </div>
+
+            <!-- html para vaciar el carrito-->
+
+            <div id="mensaje-compra" class="popup">
+                Su compra ha sido realizada correctamente.
+            </div>
+
+        </nav>
+    </header>
+    <!-- Banner -->
+
+    <div class="slideshow-container ">
+
+        <div class="mySlides fade">
+            <img src=".\img\Peluqueria.png" alt="Imagen gato cortándole el pelo" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src=".\img\COMIDA.png" alt="Imagen bolsas de comida para perro marca Delicias" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src=".\img\MEDICAMENTOS.png"
+                alt="Imagen producto All natural eye wash para la limpieza de los ojos de mascotas " style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src=".\img\PAQUETES.png" alt="Imagen envases de comida para perro marca BIO" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src=".\img\RECIPIENTE.png" alt="Imagen bebedero y comedero para perros y gatos" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src=".\img\SHAMPOO.png" alt="Imagen de producto Fancy Pets para el baño en seco e mascotas"
+                style="width:100%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+    </div>
+    <!--Productos-->
+
+    <section class="products">
+        <h2>PRODUCTOS</h2>
+        <p>Brindamos una amplia variedad de productos de alta calidad para satisfacer las necesidades de tu mascota.
+            Desde alimentos y suplementos hasta juguetes y accesorios, aquí encontrarás todo lo que necesitas para
+            mantener a tu compañero saludable y feliz.</p>
+        <div id="containerProducts">
+            <div class="listaProductos">
+                <img src="img/61YhSf-i7rL._AC_SX466_.jpg" alt="Imagen comedero/bebedero para perros y gatos" />
+                <div>
+                    <h3>Comedero/bebedero para perros y gatos</h3>
+                    <span class="precio"><span>€</span>8</span>
+                    <button class="comprar-btn" data-id="1"><i class="fa-solid fa-paw" style="color: #000000;"></i>
+                        Comprar</button>
+                    <select class="unidades" style="display: none;">
+                        <option selected value="1">1 unidad</option>
+                        <option value="2">2 unidades</option>
+                        <option value="3">3 unidades</option>
+                        <option value="4">4 unidades</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="listaProductos">
+                <img src="img/Cepillo-para-perros-y-Gatos.webp" alt="Imagen cepillo para perros y gatos" />
+                <div>
+                    <h3>Cepillo para perros y gatos</h3>
+                    <span class="precio"><span>€</span>5</span>
+                    <button class="comprar-btn" data-id="2"> <i class="fa-solid fa-paw" datastyle="color: #000000;"></i>
+                        Comprar</button>
+                    <select class="unidades" style="display: none;">
+                        <option selected value="1">1 unidad</option>
+                        <option value="2">2 unidades</option>
+                        <option value="3">3 unidades</option>
+                        <option value="4">4 unidades</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="listaProductos">
+                <img src="img/cat-bed-1.jpg" alt="Imagen Cama de madera para gatos" />
+                <div>
+                    <h3>Cama de madera para gatos</h3>
+                    <span class="precio"><span>€</span>100</span>
+                    <button class="comprar-btn" data-id="3"><i class="fa-solid fa-paw" style="color: #000000;"></i>
+                        Comprar</button>
+                    <select class="unidades" style="display: none;">
+                        <option selected value="1">1 unidad</option>
+                        <option value="2">2 unidades</option>
+                        <option value="3">3 unidades</option>
+                        <option value="4">4 unidades</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="listaProductos">
+                <img src="img/shampoo-en-seco-perro-gato.webp"
+                    alt="Imagen Fancy Pets Champú en seco para perros y gatos" />
+                <div>
+                    <h3>Fancy Pets Champú en seco para perros y gatos</h3>
+                    <span class="precio"><span>€</span>12</span>
+                    <button class="comprar-btn" data-id="4"><i class="fa-solid fa-paw" style="color: #000000;"></i>
+                        Comprar</button>
+                    <select class="unidades" style="display: none;">
+                        <option selected value="1">1 unidad</option>
+                        <option value="2">2 unidades</option>
+                        <option value="3">3 unidades</option>
+                        <option value="4">4 unidades</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="listaProductos">
+                <img src="img/61SQ8MheDgL._AC_SX466_.jpg"
+                    alt="Imagen All Natural Eye Wash Suero para limpiar los ojos" />
+                <div>
+                    <h3>All Natural Eye Wash Suero limpieza de ojos</h3>
+                    <span class="precio"><span>€</span>22</span>
+                    <button class="comprar-btn" data-id="5"><i class="fa-solid fa-paw" style="color: #000000;"></i>
+                        Comprar</button>
+                    <select class="unidades" style="display: none;">
+                        <option selected value="1">1 unidad</option>
+                        <option value="2">2 unidades</option>
+                        <option value="3">3 unidades</option>
+                        <option value="4">4 unidades</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="listaProductos">
+                <img src="img/Nuevas-Delicias-alimento-semi-humedo.png"
+                    alt="Imagen Nuevas Delicias alimento semi húmedo para perros" />
+                <div>
+                    <h3>Nuevas Delicias alimento semi húmedo para perros</h3>
+                    <span class="precio"><span>€</span>10</span>
+                    <button class="comprar-btn" data-id="6"><i class="fa-solid fa-paw" style="color: #000000;"></i>
+                        Comprar</button>
+                    <select class="unidades" style="display: none;">
+                        <option selected value="1">1 unidad</option>
+                        <option value="2">2 unidades</option>
+                        <option value="3">3 unidades</option>
+                        <option value="4">4 unidades</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- Servicios -->
+
+    <section class="services fondoverde">
+        <h2>SERVICIOS</h2>
+        <div>
+            <div>
+                <img src="img/veterninario.png" alt="Imagen servicio veterinario para tu mascota" />
+                <div>
+                    <h3>Veterinario para tu mascota</h3>
+                    <span class="precio"><span>€</span>25</span>
+                    <button class="comprar-btn" data-id="7"><i class="fa-solid fa-paw"
+                            style="color: #000000;"></i>Comprar</button>
+                </div>
+
+            </div>
+            <div>
+                <img src="img/Peluqueria.png" alt="Imagen servicio peluqueria para tu mascota" />
+                <div>
+                    <h3>Peluquería</h3>
+                    <span class="precio"><span>€</span>50</span>
+                    <button class="comprar-btn" data-id="8"><i class="fa-solid fa-paw"
+                            style="color: #000000;"></i>Comprar</button>
+                </div>
+
+            </div>
+            <div>
+                <img src="img/adiestramiento.png" alt="Imagen servicio adiestramiento para tu mascota" />
+                <div>
+                    <h3>Adiestramiento</h3>
+                    <span class="precio"><span>€</span>100</span>
+                    <button class="comprar-btn" data-id="9"><i class="fa-solid fa-paw"
+                            style="color: #000000;"></i>Comprar</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- Formulario -->
+    <section class="form">
+        <h2>CONTACTO</h2>
+        <h3 class="formSubTitle">¿Tienes alguna consulta?</h3>
+
+        <form name="Formulario" id="formulario" novalidate>
+            <label class="label" for="nombre" id="mensajeNombre">Nombre:
+                <input class="input" type="text" name="nombre" id="nombre" placeholder="Antonio">
+                <span></span>
+            </label>
+
+            <label class="label" for="apellido" id="mensajeApellido">Apellido:
+                <input class="input" type="text" name="apellido" id="apellido" placeholder="Rodriguez">
+                <span></span>
+            </label>
+
+            <label class="label" for="email" id="mensajeCorreo">Email:
+                <input class="input" type="email" name="correo" id="email" placeholder="tucorreo@dominio.com">
+                <span></span>
+            </label>
+
+
+            <label class="label" for="telefono" id="mensajeTelefono">Móvil:
+                <input class="input" type="tel" name="telefono" id="telefono" placeholder="666777888">
+                <span></span>
+            </label>
+
+            <label class="label" for="comentario" id="mensajeComentario">Comentario:
+                <textarea class="input" name="comentario" -cols="50" rows="3" id="comentario"
+                    placeholder="Deja aqui tu consulta."></textarea>
+                <span></span>
+            </label>
+
+
+            <button type="submit"><i class="fa-solid fa-paw" style="color: #000000;"></i>Enviar</button>
+            <p id="mensajeEnvio"></p>
+        </form>
+    </section>
+    <!-- Nosotros -->
+    <section class="nosotros fondoverde">
+        <h2>NOSOTROS</h2>
+        <div class="contNosotros">
+            <p>¡Bienvenidos a nuestra web de animales! Somos Pet Palace, una compañia con más de 30 años de
+                experiencia en Madrid y nos enorgullece ofrecer productos y servicios de alta calidad para todo tipo
+                de animales domésticos.
+
+                Nos especializamos en la venta de productos para mascotas, incluyendo alimentos, juguetes,
+                accesorios, productos de higiene y mucho más. Además, contamos con un equipo de profesionales
+                veterinarios altamente capacitados que brindan servicios de atención médica integral para sus
+                mascotas.
+
+                Pero eso no es todo, también ofrecemos servicios de peluquería y adiestramiento para asegurarnos de
+                que su mascota esté feliz, saludable y bien cuidada. Nos tomamos muy en serio el bienestar de su
+                animal y nos esforzamos por brindarle el mejor servicio posible.
+
+                Si busca una tienda confiable y comprometida con el cuidado de su mascota, no dude en visitarnos o
+                contactarnos a través de nuestra web. ¡Estaremos encantados de ayudarle!
+            </p>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="fondoverde">
+        <p>Copyright 2023</p>
+        <p>PetPalace</p>
+    </footer>
+    <script src="https://kit.fontawesome.com/3342157087.js" crossorigin="anonymous"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
+
